@@ -1,15 +1,10 @@
 package com.linkedin.metadata.builders.graph;
 
-import com.linkedin.common.urn.CorpuserUrn;
 import com.linkedin.common.urn.ProviderUrn;
 import com.linkedin.data.template.RecordTemplate;
-import com.linkedin.identity.CorpUserInfo;
 import com.linkedin.metadata.builders.graph.relationship.BaseRelationshipBuilder;
-import com.linkedin.metadata.builders.graph.relationship.ReportsToBuilderFromCorpUserInfo;
 import com.linkedin.metadata.dao.utils.ModelUtils;
-import com.linkedin.metadata.entity.CorpUserEntity;
 import com.linkedin.metadata.entity.ProviderEntity;
-import com.linkedin.metadata.snapshot.CorpUserSnapshot;
 import com.linkedin.metadata.snapshot.ProviderSnapshot;
 import com.linkedin.provider.ProviderInfo;
 
@@ -19,11 +14,7 @@ import java.util.*;
 public class ProviderGraphBuilder extends BaseGraphBuilder<ProviderSnapshot> {
 
     private static final Set<BaseRelationshipBuilder> RELATIONSHIP_BUILDERS =
-            Collections.unmodifiableSet(new HashSet<BaseRelationshipBuilder>() {
-                {
-                    add(new ReportsToBuilderFromCorpUserInfo());
-                }
-            });
+            Collections.unmodifiableSet(new HashSet<BaseRelationshipBuilder>() {});
 
     public ProviderGraphBuilder() {
         super(ProviderSnapshot.class, RELATIONSHIP_BUILDERS);

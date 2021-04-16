@@ -2,9 +2,7 @@ package com.linkedin.metadata.builders.search;
 
 import com.linkedin.data.template.RecordTemplate;
 import com.linkedin.metadata.search.ProviderDocument;
-import com.linkedin.metadata.search.TagDocument;
 import com.linkedin.metadata.snapshot.ProviderSnapshot;
-import com.linkedin.metadata.snapshot.TagSnapshot;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.annotation.Nonnull;
