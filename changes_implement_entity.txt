@@ -1,0 +1,90 @@
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   gms/api/src/main/pegasus/com/linkedin/provider/Provider.pdl
+	new file:   gms/api/src/main/pegasus/com/linkedin/provider/ProviderKey.pdl
+	new file:   gms/client/src/main/java/com/linkedin/provider/client/Providers.java
+	new file:   gms/factories/src/main/java/com/linkedin/gms/factory/provider/ProviderDaoFactory.java
+	new file:   gms/impl/src/integTest/java/com/linkedin/metadata/ProviderSearchSanityTest.java
+	new file:   gms/impl/src/main/java/com/linkedin/metadata/configs/ProviderSearchConfig.java
+	new file:   gms/impl/src/main/java/com/linkedin/metadata/resources/provider/Providers.java
+	new file:   gms/impl/src/main/resources/index/provider/mappings.json
+	new file:   gms/impl/src/main/resources/index/provider/settings.json
+	new file:   gms/impl/src/main/resources/providerESAutocompleteQueryTemplate.json
+	new file:   gms/impl/src/main/resources/providerESSearchQueryTemplate.json
+	new file:   li-utils/src/main/javaPegasus/com/linkedin/common/urn/ProviderUrn.java
+	new file:   li-utils/src/main/pegasus/com/linkedin/common/ProviderUrn.pdl
+	new file:   metadata-builders/src/main/java/com/linkedin/metadata/builders/graph/ProviderGraphBuilder.java
+	new file:   metadata-builders/src/main/java/com/linkedin/metadata/builders/search/ProviderIndexBuilder.java
+	new file:   metadata-dao-impl/restli-dao/src/main/java/com/linkedin/metadata/dao/ProviderActionRequestBuilder.java
+	new file:   metadata-models/src/main/pegasus/com/linkedin/metadata/aspect/ProviderAspect.pdl
+	new file:   metadata-models/src/main/pegasus/com/linkedin/metadata/entity/ProviderEntity.pdl
+	new file:   metadata-models/src/main/pegasus/com/linkedin/metadata/search/ProviderDocument.pdl
+	new file:   metadata-models/src/main/pegasus/com/linkedin/metadata/snapshot/ProviderSnapshot.pdl
+	new file:   metadata-models/src/main/pegasus/com/linkedin/provider/ProviderInfo.pdl
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   gms/api/src/main/pegasus/com/linkedin/provider/Provider.pdl
+	modified:   gms/api/src/main/pegasus/com/linkedin/provider/ProviderKey.pdl
+	modified:   gms/api/src/main/snapshot/com.linkedin.dataset.datasets.snapshot.json
+	modified:   gms/client/src/main/java/com/linkedin/provider/client/Providers.java
+	modified:   gms/factories/src/main/java/com/linkedin/gms/factory/provider/ProviderDaoFactory.java
+	modified:   gms/impl/src/integTest/java/com/linkedin/metadata/ProviderSearchSanityTest.java
+	modified:   gms/impl/src/main/java/com/linkedin/metadata/configs/ProviderSearchConfig.java
+	modified:   gms/impl/src/main/java/com/linkedin/metadata/resources/provider/Providers.java
+	modified:   li-utils/src/main/javaPegasus/com/linkedin/common/urn/ProviderUrn.java
+	modified:   li-utils/src/main/pegasus/com/linkedin/common/ProviderUrn.pdl
+	modified:   metadata-builders/src/main/java/com/linkedin/metadata/builders/graph/ProviderGraphBuilder.java
+	modified:   metadata-builders/src/main/java/com/linkedin/metadata/builders/search/ProviderIndexBuilder.java
+	modified:   metadata-dao-impl/restli-dao/src/main/java/com/linkedin/metadata/dao/ProviderActionRequestBuilder.java
+	modified:   metadata-dao-impl/restli-dao/src/main/java/com/linkedin/metadata/dao/RequestBuilders.java
+	modified:   metadata-models/src/main/pegasus/com/linkedin/metadata/aspect/ProviderAspect.pdl
+	modified:   metadata-models/src/main/pegasus/com/linkedin/metadata/entity/ProviderEntity.pdl
+	modified:   metadata-models/src/main/pegasus/com/linkedin/metadata/search/ProviderDocument.pdl
+	modified:   metadata-models/src/main/pegasus/com/linkedin/metadata/snapshot/ProviderSnapshot.pdl
+	modified:   metadata-models/src/main/pegasus/com/linkedin/metadata/snapshot/Snapshot.pdl
+	modified:   metadata-models/src/main/pegasus/com/linkedin/provider/ProviderInfo.pdl
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	docs-website/package-lock.json
+	gms/api/src/main/idl/com.linkedin.provider.providers.restspec.json
+	gms/api/src/main/snapshot/com.linkedin.provider.providers.snapshot.json
+
+A
+A
+A
+A
+A
+A
+A
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+B
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+

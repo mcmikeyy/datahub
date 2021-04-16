@@ -1,0 +1,16 @@
+namespace com.linkedin.metadata.search
+
+import com.linkedin.common.ProviderUrn
+
+/**
+ * Data model for tag entity search
+ */
+record ProviderDocument includes BaseDocument {
+
+  /**
+   * Urn for the dataset
+   */
+  urn: ProviderUrn
+
+  name: optional string
+}

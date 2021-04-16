@@ -1,0 +1,25 @@
+namespace com.linkedin.common
+
+/**
+ * Globally defined tag
+ */
+@java.class = "com.linkedin.common.urn.ProviderUrn"
+@validate.`com.linkedin.common.validator.TypedUrnValidator` = {
+  "accessible" : true,
+  "owningTeam" : "urn:li:internalTeam:datahub",
+  "entityType" : "provider",
+  "constructable" : true,
+  "namespace" : "li",
+  "name" : "Provider",
+  "doc" : "Provider of data",
+  "owners" : [],
+  "fields" : [ {
+    "name" : "name",
+    "doc" : "name",
+    "type" : "string",
+    "maxLength" : 200
+  } ],
+  "maxLength" : 220
+
+}
+typeref ProviderUrn = string

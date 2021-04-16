@@ -1,0 +1,15 @@
+namespace com.linkedin.provider
+
+import com.linkedin.common.ChangeAuditStamps
+import com.linkedin.common.Url
+
+record ProviderInfo {
+
+  name: string
+
+  description: string
+
+  lastModified: ChangeAuditStamps
+
+  active: boolean
+}

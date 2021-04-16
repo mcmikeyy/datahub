@@ -1,0 +1,19 @@
+namespace com.linkedin.metadata.entity
+
+import com.linkedin.common.ProviderUrn
+
+/**
+ * Data model for a tag entity
+ */
+record ProviderEntity includes BaseEntity {
+
+  /**
+   * Urn for the tag
+   */
+  urn: ProviderUrn
+
+  /**
+   * Name of the tag
+   */
+  name: optional string
+}

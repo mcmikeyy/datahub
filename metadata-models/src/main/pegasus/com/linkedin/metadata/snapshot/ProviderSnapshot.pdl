@@ -1,0 +1,17 @@
+namespace com.linkedin.metadata.snapshot
+
+import com.linkedin.common.ProviderUrn
+import com.linkedin.metadata.aspect.ProviderAspect
+
+record ProviderSnapshot {
+
+  /**
+   * URN for the entity the metadata snapshot is associated with.
+   */
+  urn: ProviderUrn
+
+  /**
+   * The list of metadata aspects associated with the dataset. Depending on the use case, this can either be all, or a selection, of supported aspects.
+   */
+  aspects: array[ProviderAspect]
+}

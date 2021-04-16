@@ -1,0 +1,16 @@
+namespace com.linkedin.provider
+
+/**
+ * Key for Provider resource
+ */
+record ProviderKey {
+
+  /**
+   * provider name
+   */
+  @validate.strlen = {
+    "max" : 200,
+    "min" : 1
+  }
+  name: string
+}
