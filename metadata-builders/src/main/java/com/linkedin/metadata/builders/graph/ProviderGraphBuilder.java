@@ -9,12 +9,13 @@ import com.linkedin.metadata.snapshot.ProviderSnapshot;
 import com.linkedin.provider.ProviderInfo;
 
 import javax.annotation.Nonnull;
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
 
 public class ProviderGraphBuilder extends BaseGraphBuilder<ProviderSnapshot> {
 
     private static final Set<BaseRelationshipBuilder> RELATIONSHIP_BUILDERS =
-            Collections.unmodifiableSet(new HashSet<BaseRelationshipBuilder>() {});
+            Collections.unmodifiableSet(new HashSet<BaseRelationshipBuilder>());
 
     public ProviderGraphBuilder() {
         super(ProviderSnapshot.class, RELATIONSHIP_BUILDERS);
