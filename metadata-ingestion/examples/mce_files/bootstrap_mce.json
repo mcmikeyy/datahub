@@ -66,6 +66,38 @@
     {
         "auditHeader": null,
         "proposedSnapshot": {
+            "com.linkedin.pegasus2avro.metadata.snapshot.CorpUserSnapshot": {
+                "urn": "urn:li:corpuser:mconnors",
+                "aspects": [
+                    {
+                        "com.linkedin.pegasus2avro.identity.CorpUserInfo": {
+                            "active": true,
+                            "displayName": {
+                                "string": "Michael Connors"
+                            },
+                            "email": "michael.connors@woodmac.com",
+                            "title": {
+                                "string": "Software Engineer"
+                            },
+                            "managerUrn": null,
+                            "departmentId": null,
+                            "departmentName": null,
+                            "firstName": null,
+                            "lastName": null,
+                            "fullName": {
+                                "string": "Michael Connors"
+                            },
+                            "countryCode": null
+                        }
+                    }
+                ]
+            }
+        },
+        "proposedDelta": null
+    },
+    {
+        "auditHeader": null,
+        "proposedSnapshot": {
             "com.linkedin.pegasus2avro.metadata.snapshot.DatasetSnapshot": {
                 "urn": "urn:li:dataset:(urn:li:dataPlatform:kafka,SampleKafkaDataset,PROD)",
                 "aspects": [

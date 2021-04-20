@@ -10,8 +10,6 @@ import com.linkedin.provider.ProvidersRequestBuilders;
 import com.linkedin.r2.RemoteInvocationException;
 import com.linkedin.restli.client.Client;
 import com.linkedin.restli.common.CollectionResponse;
-import com.linkedin.tag.TagsFindBySearchRequestBuilder;
-import com.linkedin.tag.TagsRequestBuilders;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

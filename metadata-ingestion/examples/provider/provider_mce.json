@@ -8,7 +8,7 @@
           "com.linkedin.pegasus2avro.provider.ProviderInfo": {
             "name": "ProviderA",
             "active": true,
-            "description": "its provider A",
+            "description": "its provider A again and againb",
             "lastModified" : {
               "created": {
                 "time": 1615444202056,
@@ -16,7 +16,7 @@
                 "impersonator": null
               },
               "lastModified":{
-                "time": 1615444202056,
+                "time": 1615444402058,
                 "actor": "urn:li:corpuser:mconnors",
                 "impersonator": null
               },
