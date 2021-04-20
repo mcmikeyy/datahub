@@ -15,6 +15,7 @@ from datahub.metadata.schema_classes import (  # MLFeatureSnapshotClass,
     DatasetSnapshotClass,
     MLModelSnapshotClass,
     TagSnapshotClass,
+    ProviderSnapshotClass,
 )
 
 resource_locator: Dict[Type[object], str] = {
@@ -26,6 +27,7 @@ resource_locator: Dict[Type[object], str] = {
     DataProcessSnapshotClass: "dataProcesses",
     MLModelSnapshotClass: "mlModels",
     TagSnapshotClass: "tags",
+    ProviderSnapshotClass: "providers",
 }
 
 

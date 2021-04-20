@@ -1,0 +1,31 @@
+{
+  "auditHeader": null,
+  "proposedSnapshot": {
+    "com.linkedin.pegasus2avro.metadata.snapshot.ProviderSnapshot": {
+      "urn": "urn:li:provider:providera",
+      "aspects": [
+        {
+          "com.linkedin.pegasus2avro.provider.ProviderInfo": {
+            "name": "ProviderA",
+            "active": true,
+            "description": "its provider A",
+            "lastModified" : {
+              "created": {
+                "time": 1615444202056,
+                "actor": "urn:li:corpuser:mconnors",
+                "impersonator": null
+              },
+              "lastModified":{
+                "time": 1615444202056,
+                "actor": "urn:li:corpuser:mconnors",
+                "impersonator": null
+              },
+              "deleted": null
+            }
+          }
+        }
+      ]
+    }
+  },
+  "proposedDelta": null
+}

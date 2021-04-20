@@ -9,8 +9,11 @@ import com.linkedin.metadata.snapshot.ProviderSnapshot;
 import com.linkedin.provider.ProviderInfo;
 
 import javax.annotation.Nonnull;
-import java.util.Collections;
+import java.util.Optional;
 import java.util.List;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ProviderGraphBuilder extends BaseGraphBuilder<ProviderSnapshot> {
 
@@ -26,16 +29,16 @@ public class ProviderGraphBuilder extends BaseGraphBuilder<ProviderSnapshot> {
     protected List<? extends RecordTemplate> buildEntities(@Nonnull ProviderSnapshot snapshot) {
         final ProviderUrn urn = snapshot.getUrn();
         final ProviderEntity entity = new ProviderEntity().setUrn(urn)
-                .setRemoved(!isUserActive(snapshot))
+                .setRemoved(!isProviderActive(snapshot))
                 .setName(urn.getName());
 
         return Collections.singletonList(entity);
     }
 
-    static boolean isUserActive(@Nonnull ProviderSnapshot snapshot) {
-        final Optional<ProviderInfo> corpUserInfoAspect = ModelUtils.getAspectFromSnapshot(snapshot, ProviderInfo.class);
-        if (corpUserInfoAspect.isPresent()) {
-            return corpUserInfoAspect.get().isActive();
+    static boolean isProviderActive(@Nonnull ProviderSnapshot snapshot) {
+        final Optional<ProviderInfo> providerInfo = ModelUtils.getAspectFromSnapshot(snapshot, ProviderInfo.class);
+        if (providerInfo.isPresent()) {
+            return providerInfo.get().isActive();
         }
         return true;
     }

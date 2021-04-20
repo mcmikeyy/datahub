@@ -1,0 +1,27 @@
+# Default override to use MySQL as a backing store for datahub-gms (same as docker-compose.mysql.yml).
+---
+version: '3.8'
+services:
+  postgres:
+    container_name: postgres
+    hostname: postgres
+    image: postgres:12.3
+#    env_file: postgres/env/docker.env
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: datahub
+      POSTGRES_USER: datahub
+      POSTGRES_DB: datahub
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  datahub-gms:
+    env_file: datahub-gms/env/docker.postgres.env
+    depends_on:
+      - postgres
+
+networks:
+  default:
+    name: datahub_network

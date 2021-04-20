@@ -1,0 +1,19 @@
+---
+version: '3.5'
+services:
+  ingestion:
+    build:
+      context: ../../../
+      dockerfile: docker/datahub-ingestion/Dockerfile
+    image: linkedin/datahub-ingestion:${DATAHUB_VERSION:-latest}
+    hostname: ingestion
+    container_name: ingestion
+    command: "ingest -c /file-to-kafka.yml"
+    volumes: 
+      # Most of the config is embedded inside the sample recipe file.
+      - ./file-to-kafka.yml:/file-to-kafka.yml:ro
+      - ../../../metadata-ingestion/examples/provider/provider_mce.json:/provider_mce.json:ro
+
+networks:
+  default:
+    name: datahub_network
