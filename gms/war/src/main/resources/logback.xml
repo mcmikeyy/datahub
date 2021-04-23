@@ -23,11 +23,11 @@
         </triggeringPolicy>
     </appender>
 
-    <logger name="org.apache.kafka.clients" level="debug">
+    <logger name="org.apache.kafka.clients" level="info">
         <appender-ref ref="STDOUT" />
     </logger>
 
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="STDOUT" />
         <appender-ref ref="FILE"/>
     </root>

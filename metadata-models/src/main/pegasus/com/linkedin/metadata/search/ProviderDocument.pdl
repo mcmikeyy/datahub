@@ -13,4 +13,6 @@ record ProviderDocument includes BaseDocument {
   urn: ProviderUrn
 
   name: optional string
+
+  description: optional string
 }

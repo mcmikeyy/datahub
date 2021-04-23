@@ -100,7 +100,7 @@ We use a plugin architecture so that you can install only the dependencies you a
 These plugins can be mixed and matched as desired. For example:
 
 ```sh
-pip install -e '.[bigquery,datahub-rest]
+pip install -e '.[bigquery,datahub-rest,datahub-kafka]'
 ```
 
 You can check the active plugins:

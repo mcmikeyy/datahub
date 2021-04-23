@@ -65,12 +65,15 @@ public final class SnapshotProcessor {
     final List<RecordTemplate> docsList = new ArrayList<>();
     final DataMap snapshotData = (DataMap) snapshot.data();
     for (String clazz : snapshotData.keySet()) {
+      log.info("clazz={}", clazz);
       Class<? extends RecordTemplate> snapshotClass = ModelUtils.getMetadataSnapshotClassFromName(clazz);
       if (!_snapshotTypeToIndexBuilders.containsKey(clazz)) {
+        log.info("!_snapshotTypeToIndexBuilders.containsKey(clazz) ={}", clazz);
         continue;
       }
       final List<? extends BaseIndexBuilder<?>> builders = _snapshotTypeToIndexBuilders.get(clazz);
       for (BaseIndexBuilder<?> builder : builders) {
+        log.info("builder={}", builder.getDocumentType().getName());
         try {
           final Object obj = snapshotClass.getConstructor(DataMap.class).newInstance((DataMap) snapshotData.get(clazz));
           List<? extends RecordTemplate> records = builder.getDocumentsToUpdate((RecordTemplate) obj);
@@ -80,6 +83,7 @@ public final class SnapshotProcessor {
         }
       }
     }
+    log.info("return docslist", docsList);
     return docsList;
   }
 }

@@ -4,6 +4,7 @@ import com.linkedin.common.Ownership;
 import com.linkedin.common.urn.ProviderUrn;
 import com.linkedin.common.urn.Urn;
 import com.linkedin.metadata.aspect.ProviderAspect;
+import com.linkedin.metadata.dao.BaseBrowseDAO;
 import com.linkedin.metadata.dao.BaseLocalDAO;
 import com.linkedin.metadata.dao.BaseSearchDAO;
 import com.linkedin.metadata.dao.utils.ModelUtils;
@@ -12,7 +13,7 @@ import com.linkedin.metadata.query.Filter;
 import com.linkedin.metadata.query.SearchResultMetadata;
 import com.linkedin.metadata.query.SortCriterion;
 import com.linkedin.metadata.restli.BackfillResult;
-import com.linkedin.metadata.restli.BaseSearchableEntityResource;
+import com.linkedin.metadata.restli.BaseBrowsableEntityResource;
 import com.linkedin.metadata.search.ProviderDocument;
 import com.linkedin.metadata.snapshot.ProviderSnapshot;
 import com.linkedin.parseq.Task;
@@ -30,6 +31,7 @@ import com.linkedin.restli.server.annotations.PagingContextParam;
 import com.linkedin.restli.server.annotations.QueryParam;
 import com.linkedin.restli.server.annotations.RestLiCollection;
 import com.linkedin.restli.server.annotations.RestMethod;
+import lombok.extern.slf4j.Slf4j;
 
 
 import javax.annotation.Nonnull;
@@ -43,8 +45,9 @@ import java.util.Set;
 
 import static com.linkedin.metadata.restli.RestliConstants.*;
 
+@Slf4j
 @RestLiCollection(name = "providers", namespace = "com.linkedin.provider", keyName = "provider")
-public final class Providers extends BaseSearchableEntityResource<
+public final class Providers extends BaseBrowsableEntityResource<
         // @formatter:off
         ComplexResourceKey<ProviderKey, EmptyRecord>,
         Provider,
@@ -63,8 +66,18 @@ public final class Providers extends BaseSearchableEntityResource<
     @Named("providerSearchDao")
     private BaseSearchDAO _esSearchDAO;
 
+    @Inject
+    @Named("datasetBrowseDao")
+    private BaseBrowseDAO _browseDAO;
+
     public Providers() {
         super(ProviderSnapshot.class, ProviderAspect.class);
+    }
+
+    @Nonnull
+    @Override
+    protected BaseBrowseDAO getBrowseDAO() {
+        return _browseDAO;
     }
 
     @Override
@@ -186,6 +199,5 @@ public final class Providers extends BaseSearchableEntityResource<
                                          @ActionParam(PARAM_ASPECTS) @Optional @Nullable String[] aspectNames) {
         return super.backfill(urnString, aspectNames);
     }
-
 
 }

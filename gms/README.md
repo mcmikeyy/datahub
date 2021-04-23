@@ -88,7 +88,7 @@ curl 'http://localhost:8080/dataPlatforms/hdfs?aspects=List(com.linkedin.datapla
 
 ### Get user
 ```
-curl 'http://localhost:8080/corpUsers/($params:(),name:fbar)' -H 'X-RestLi-Protocol-Version:2.0.0' -s | jq
+curl 'http://localhost:8080/corpUsers/($params:(),name:mconnors)' -H 'X-RestLi-Protocol-Version:2.0.0' -s | jq
 
 {
   "editableInfo": {},

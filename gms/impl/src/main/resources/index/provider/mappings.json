@@ -17,6 +17,9 @@
     "urn": {
       "type": "keyword",
       "normalizer": "custom_normalizer"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }

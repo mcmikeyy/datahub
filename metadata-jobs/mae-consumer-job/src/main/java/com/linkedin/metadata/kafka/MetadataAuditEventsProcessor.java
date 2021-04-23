@@ -53,16 +53,17 @@ public class MetadataAuditEventsProcessor {
   @KafkaListener(id = "mae-consumer-job-client", topics = "${KAFKA_TOPIC_NAME:" + Topics.METADATA_AUDIT_EVENT + "}")
   public void consume(final ConsumerRecord<String, GenericRecord> consumerRecord) {
     final GenericRecord record = consumerRecord.value();
-    log.debug("Got MAE");
+    log.info("Got MAE");
 
     try {
       final MetadataAuditEvent event = EventUtils.avroToPegasusMAE(record);
       if (event.hasNewSnapshot()) {
         final Snapshot snapshot = event.getNewSnapshot();
 
-        log.info(snapshot.toString());
+        log.info("snapshot={}", snapshot.toString());
 
         updateElasticsearch(snapshot);
+        log.info("updateNeo4j next");
         updateNeo4j(RecordUtils.getSelectedRecordTemplateFromUnion(snapshot));
       }
     } catch (Exception e) {
@@ -101,15 +102,21 @@ public class MetadataAuditEventsProcessor {
   private void updateElasticsearch(final Snapshot snapshot) {
     List<RecordTemplate> docs = new ArrayList<>();
     try {
+      log.info("is provider ={}", snapshot.isProviderSnapshot());
+
       docs = snapshotProcessor.getDocumentsToUpdate(snapshot);
     } catch (Exception e) {
-      log.error("Error in getting documents from snapshot: {}", e.toString());
+      log.error("1 Error in getting documents from snapshot:");
+      log.error("2 Error in getting documents from snapshot: {}", e.toString() + " " + Arrays.toString(e.getStackTrace()));
+      log.error("3 Error in getting documents from snapshot: {}", e.toString());
     }
 
     for (RecordTemplate doc : docs) {
+      log.info("RecordTemplate doc : docs");
       MCEElasticEvent elasticEvent = new MCEElasticEvent(doc);
       BaseIndexBuilder indexBuilderForDoc = null;
       for (BaseIndexBuilder indexBuilder : indexBuilders) {
+        log.info("BaseIndexBuilder indexBuilder : indexBuilders");
         Class docType = indexBuilder.getDocumentType();
         if (docType.isInstance(doc)) {
           indexBuilderForDoc = indexBuilder;
@@ -117,6 +124,7 @@ public class MetadataAuditEventsProcessor {
         }
       }
       if (indexBuilderForDoc == null) {
+        log.info("indexBuilderForDoc == null");
         continue;
       }
       elasticEvent.setIndex(indexBuilderForDoc.getDocumentType().getSimpleName().toLowerCase());
@@ -124,11 +132,13 @@ public class MetadataAuditEventsProcessor {
         String urn = indexBuilderForDoc.getDocumentType().getMethod("getUrn").invoke(doc).toString();
         elasticEvent.setId(URLEncoder.encode(urn.toLowerCase(), "UTF-8"));
       } catch (UnsupportedEncodingException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+        log.info("exception encode urn");
         log.error("Failed to encode the urn with error: {}", e.toString());
         continue;
       }
       elasticEvent.setActionType(ChangeType.UPDATE);
       elasticSearchConnector.feedElasticEvent(elasticEvent);
+      log.info("after feedElasticEvent provider ={}", snapshot.isProviderSnapshot());
     }
   }
 }

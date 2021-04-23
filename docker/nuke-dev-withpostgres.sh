@@ -8,4 +8,4 @@ cd $DIR && \
     -f docker-compose-postgres.yml \
     -f docker-compose.postgresoverride.yml \
     -f docker-compose.dev.yml \
-    up
+    down

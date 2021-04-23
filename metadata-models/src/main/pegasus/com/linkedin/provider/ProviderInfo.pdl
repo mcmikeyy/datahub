@@ -3,6 +3,7 @@ namespace com.linkedin.provider
 import com.linkedin.common.ChangeAuditStamps
 import com.linkedin.common.Url
 
+@Aspect.EntityUrns = [ "com.linkedin.common.ProviderUrn" ]
 record ProviderInfo {
 
   name: string

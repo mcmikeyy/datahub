@@ -20,7 +20,7 @@ public class ProviderSearchSanityTest extends BaseSearchSanityTests<ProviderDocu
 
     private static final ProviderUrn URN = new ProviderUrn("provider1");
     private static final ProviderDocument DOCUMENT = new ProviderDocument()
-            .setUrn(URN);
+            .setUrn(URN).setName("provider1").setDescription("test 1");
 
     protected ProviderSearchSanityTest() {
         super(URN, DOCUMENT, new ProviderSearchConfig());

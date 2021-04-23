@@ -16,4 +16,6 @@ record ProviderEntity includes BaseEntity {
    * Name of the tag
    */
   name: optional string
+
+  description: optional string
 }

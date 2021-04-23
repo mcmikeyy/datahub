@@ -235,7 +235,10 @@
       }, {
         "name" : "active",
         "type" : "boolean"
-      } ]
+      } ],
+      "Aspect" : {
+        "EntityUrns" : [ "com.linkedin.common.ProviderUrn" ]
+      }
     }, "com.linkedin.common.Ownership", "com.linkedin.common.Status", "com.linkedin.common.GlobalTags" ]
   }, {
     "type" : "record",
@@ -546,7 +549,50 @@
         } ]
       } ],
       "entity" : {
-        "path" : "/providers/{provider}"
+        "path" : "/providers/{provider}",
+        "subresources" : [ {
+          "name" : "providerInfo",
+          "namespace" : "com.linkedin.provider",
+          "path" : "/providers/{provider}/providerInfo",
+          "schema" : "com.linkedin.provider.ProviderInfo",
+          "doc" : "Rest.li entry point: /providers/{providerKey}/providerInfo\n\ngenerated from: com.linkedin.metadata.resources.provider.ProviderInfoResource",
+          "collection" : {
+            "identifier" : {
+              "name" : "providerInfoId",
+              "type" : "long"
+            },
+            "supports" : [ "create", "get" ],
+            "methods" : [ {
+              "method" : "create"
+            }, {
+              "method" : "get"
+            } ],
+            "entity" : {
+              "path" : "/providers/{provider}/providerInfo/{providerInfoId}"
+            }
+          }
+        }, {
+          "name" : "rawOwnership",
+          "namespace" : "com.linkedin.provider",
+          "path" : "/providers/{provider}/rawOwnership",
+          "schema" : "com.linkedin.common.Ownership",
+          "doc" : "Rest.li entry point: /providers/{providerKey}/rawOwnership\n\ngenerated from: com.linkedin.metadata.resources.provider.OwnershipResource",
+          "collection" : {
+            "identifier" : {
+              "name" : "rawOwnershipId",
+              "type" : "long"
+            },
+            "supports" : [ "create", "get" ],
+            "methods" : [ {
+              "method" : "create"
+            }, {
+              "method" : "get"
+            } ],
+            "entity" : {
+              "path" : "/providers/{provider}/rawOwnership/{rawOwnershipId}"
+            }
+          }
+        } ]
       }
     }
   }

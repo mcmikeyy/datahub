@@ -1,3 +1,35 @@
+[{
+  "auditHeader": null,
+  "proposedSnapshot": {
+    "com.linkedin.pegasus2avro.metadata.snapshot.CorpUserSnapshot": {
+      "urn": "urn:li:corpuser:mconnors",
+      "aspects": [
+        {
+          "com.linkedin.pegasus2avro.identity.CorpUserInfo": {
+            "active": true,
+            "displayName": {
+              "string": "Michael Connors"
+            },
+            "email": "michael.connors@woodmac.com",
+            "title": {
+              "string": "Software Engineer"
+            },
+            "managerUrn": null,
+            "departmentId": null,
+            "departmentName": null,
+            "firstName": null,
+            "lastName": null,
+            "fullName": {
+              "string": "Michael Connors"
+            },
+            "countryCode": null
+          }
+        }
+      ]
+    }
+  },
+  "proposedDelta": null
+},
 {
   "auditHeader": null,
   "proposedSnapshot": {
@@ -6,9 +38,9 @@
       "aspects": [
         {
           "com.linkedin.pegasus2avro.provider.ProviderInfo": {
-            "name": "ProviderA",
+            "name": "providera",
             "active": true,
-            "description": "its provider A again and againb",
+            "description": "its provider A again third time",
             "lastModified" : {
               "created": {
                 "time": 1615444202056,
@@ -23,9 +55,31 @@
               "deleted": null
             }
           }
+        },
+        {
+          "com.linkedin.pegasus2avro.common.Ownership": {
+            "owners": [
+              {
+                "owner": "urn:li:corpuser:mconnors",
+                "type": "DATAOWNER",
+                "source": null
+              },
+              {
+                "owner": "urn:li:corpuser:datahub",
+                "type": "DATAOWNER",
+                "source": null
+              }
+            ],
+            "lastModified": {
+              "time": 1581407189000,
+              "actor": "urn:li:corpuser:mconnors",
+              "impersonator": null
+            }
+          }
         }
       ]
     }
   },
   "proposedDelta": null
 }
+]

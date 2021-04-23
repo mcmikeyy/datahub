@@ -26,6 +26,19 @@
         }
       },
       "analyzer": {
+        "whitespace_lowercase": {
+          "filter": [
+            "lowercase"
+          ],
+          "tokenizer": "whitespace"
+        },
+        "custom_keyword": {
+          "filter": [
+            "lowercase"
+          ],
+          "type": "custom",
+          "tokenizer": "keyword"
+        },
         "delimit_edgengram": {
           "filter": [
             "lowercase",
